@@ -1,0 +1,11 @@
+# Rust Development Rules
+
+## Code Style and Structure
+- Follow the official Rust style guide (rustfmt conventions)
+- Use idiomatic Rust patterns and idioms
+- Embrace Rust's ownership and borrowing system
+- Prefer immutable variables (`let`) over mutable ones (`let mut`)
+- Use meaningful and descriptive names for variables, functions, and types
+- Keep functions focused and single-purpose
+- Organize code into modules logically
+- Use proper visibility modifiers (pub, pub(crate), etc.)
