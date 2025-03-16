@@ -1,7 +1,64 @@
-/// Main entry point for the application
+use std::time::{Duration, Instant};
 fn main() {
     println!("Hello, world!");
     process_penguin_data();
+    try_simple_math();
+
+    try_while_loop();
+}
+
+/// Counts the number of iterations possible within a one-second duration
+///
+/// This function demonstrates the use of Rust's time measurement capabilities by:
+/// 1. Starting a timer
+/// 2. Incrementing a counter in a tight loop for one second
+/// 3. Printing the final count, showing how many iterations were completed
+///
+/// The count gives a rough indication of the system's processing speed, though
+/// it should not be used as a formal benchmark due to various factors that
+/// can affect the results.
+///
+/// # Example Output
+/// ```text
+/// count: 234567890  // Actual number will vary by system
+/// ```
+fn try_while_loop() {
+    let mut count = 0;
+    let duration = Duration::new(1, 0);  // One second duration
+    let start = Instant::now();
+
+    while (Instant::now() - start) < duration {
+        count += 1;
+    }
+
+    println!("count: {}", count);
+}
+
+/// Adds two 32-bit integers and returns their sum
+///
+/// # Arguments
+/// * `a` - The first integer operand
+/// * `b` - The second integer operand
+///
+/// # Returns
+/// The sum of `a` and `b` as an i32
+fn add(a: i32, b: i32) -> i32 {
+    a + b
+}
+
+/// Demonstrates basic arithmetic operations using the add function
+///
+/// This function creates two integer variables, adds them using the `add` function,
+/// and prints the result to standard output.
+fn try_simple_math() {
+    println!("\n{}", "try_simple_math");
+    let a = 1_i32;
+    let b: i32 = 2;
+    let c = 30_i32;
+    let d = 30_i32;
+
+    let e:i32 = add (add(a, b), add(c, d));
+    println!("sum: {}", e);
 }
 
 /// Processes penguin data from a CSV-like string format and prints valid records
