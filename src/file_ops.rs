@@ -55,7 +55,7 @@ impl File {
         let read_length = self.data.len();
 
         buf.reserve(read_length);
-        buf.append(&mut self.data.clone());
+        buf.extend_from_slice(&self.data);
 
         read_length
     }
