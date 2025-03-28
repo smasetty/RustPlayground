@@ -1,8 +1,12 @@
-use std::time::{Duration, Instant};
 mod string_utils;
 mod simple_math;
+mod file_ops;
+
+use std::time::{Duration, Instant};
+
 use simple_math::{try_simple_math, try_is_even};
 use string_utils::{try_grep, try_grep_2};
+use file_ops::try_file_ops;
 
 fn main() {
     println!("Hello, world!");
@@ -16,6 +20,7 @@ fn main() {
     try_match();
     try_grep();
     try_grep_2();
+    try_file_ops();
 }
 
 fn try_match() {
