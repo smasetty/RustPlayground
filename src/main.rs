@@ -1,15 +1,19 @@
 mod string_utils;
 mod simple_math;
 mod file_ops;
+mod threading;
 
 use std::time::{Duration, Instant};
 
 use simple_math::{try_simple_math, try_is_even};
 use string_utils::{try_grep, try_grep_2};
 use file_ops::try_file_ops;
+use threading::{try_interior_mutability, try_threading_arc_mutex};
 
 fn main() {
     println!("Hello, world!");
+    try_interior_mutability();
+    try_threading_arc_mutex();
     process_penguin_data();
 
     try_simple_math();
