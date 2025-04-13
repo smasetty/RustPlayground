@@ -1,5 +1,3 @@
-#![allow(unused_variables)]
-
 #[derive(Debug, PartialEq)]
 enum FileState {
     Open,
@@ -63,6 +61,25 @@ impl File {
         Ok(())
     }
 
+    /// Test function to open, read, and close a file
+    ///
+    /// # Returns
+    /// `Ok(())` if the file was successfully opened, read, and closed
+    /// `Err(String)` if any operation fails
+    /// 
+    /// # Example
+    /// ```rust
+    /// let mut f1 = File::new("f1.txt");
+    /// let result = f1.testFn();
+    /// assert_eq!(result, Ok(()));
+    /// ```
+    pub fn test_file_open_close(&mut self) -> Result<(), String> {
+        self.open()?;
+        self.read(&mut Vec::new())?;
+        self.close()?;
+        Ok(())
+    }
+
     /// Reads the file's contents into the provided buffer
     ///
     /// # Arguments
@@ -115,6 +132,11 @@ impl File {
 pub fn try_file_ops() {
     let data = vec![1, 2, 3, 4, 5];
     let mut f1 = File::new_with_data("f1.txt", &data);
+
+    if let Err(e) = f1.test_file_open_close() {
+        println!("Error with test_file_open_close: {}", e);
+        return;
+    }
 
     if let Err(e) = f1.open() {
         println!("Error opening file: {}", e);
